@@ -1,0 +1,760 @@
+name: Clubs
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/clubs
+    metadata:
+      custom: []
+      groupName: Clubs
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Créer un club'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_SANCTUM_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'Slug unique du club.'
+        required: true
+        example: hafia-fc
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Nom du club.'
+        required: true
+        example: 'Hafia FC'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      acronym:
+        custom: []
+        name: acronym
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: qxbajwbpilpmufinl
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      founded_at:
+        custom: []
+        name: founded_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2026-06-04T17:22:32'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      city:
+        custom: []
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: lwloauydlsmsjuryvojcy
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      logo:
+        custom: []
+        name: logo
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://reynolds.com/'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      hero:
+        custom: []
+        name: hero
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://schmeler.com/a-quo-sed-fugit-facilis-perferendis-dolores-molestias'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      primary_color:
+        custom: []
+        name: primary_color
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: iihfqcoynlazghdtq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      secondary_color:
+        custom: []
+        name: secondary_color
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: tqxbajwbpilpmufin
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      social:
+        custom: []
+        name: social
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      social.facebook:
+        custom: []
+        name: social.facebook
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'https://www.kemmer.net/similique-accusantium-et-a-qui-ducimus'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      social.youtube:
+        custom: []
+        name: social.youtube
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://koelpin.info/omnis-cum-molestiae-vel-natus-ex'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      social.instagram:
+        custom: []
+        name: social.instagram
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://www.white.com/'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      slug: hafia-fc
+      name: 'Hafia FC'
+      acronym: qxbajwbpilpmufinl
+      founded_at: '2026-06-04T17:22:32'
+      city: lwloauydlsmsjuryvojcy
+      description: 'Dolores dolorum amet iste laborum eius est dolor.'
+      logo: 'http://reynolds.com/'
+      hero: 'http://schmeler.com/a-quo-sed-fugit-facilis-perferendis-dolores-molestias'
+      primary_color: iihfqcoynlazghdtq
+      secondary_color: tqxbajwbpilpmufin
+      social:
+        facebook: 'https://www.kemmer.net/similique-accusantium-et-a-qui-ducimus'
+        youtube: 'http://koelpin.info/omnis-cum-molestiae-vel-natus-ex'
+        instagram: 'http://www.white.com/'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/clubs/{slug}'
+    metadata:
+      custom: []
+      groupName: Clubs
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mettre à jour un club'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_SANCTUM_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'The slug of the club.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      club:
+        custom: []
+        name: club
+        description: 'ID ou slug du club (binding Laravel).'
+        required: true
+        example: hafia-fc
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      slug: consequatur
+      club: hafia-fc
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'Slug unique du club.'
+        required: false
+        example: hafia-fc
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Nom du club.'
+        required: false
+        example: 'Hafia FC'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      acronym:
+        custom: []
+        name: acronym
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: qxbajwbpilpmufinl
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      founded_at:
+        custom: []
+        name: founded_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2026-06-04T17:22:36'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      city:
+        custom: []
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: lwloauydlsmsjuryvojcy
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      logo:
+        custom: []
+        name: logo
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://reynolds.com/'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      hero:
+        custom: []
+        name: hero
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://schmeler.com/a-quo-sed-fugit-facilis-perferendis-dolores-molestias'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      primary_color:
+        custom: []
+        name: primary_color
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: iihfqcoynlazghdtq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      secondary_color:
+        custom: []
+        name: secondary_color
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: tqxbajwbpilpmufin
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      social:
+        custom: []
+        name: social
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      social.facebook:
+        custom: []
+        name: social.facebook
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'https://www.kemmer.net/similique-accusantium-et-a-qui-ducimus'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      social.youtube:
+        custom: []
+        name: social.youtube
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://koelpin.info/omnis-cum-molestiae-vel-natus-ex'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      social.instagram:
+        custom: []
+        name: social.instagram
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://www.white.com/'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      slug: hafia-fc
+      name: 'Hafia FC'
+      acronym: qxbajwbpilpmufinl
+      founded_at: '2026-06-04T17:22:36'
+      city: lwloauydlsmsjuryvojcy
+      description: 'Dolores dolorum amet iste laborum eius est dolor.'
+      logo: 'http://reynolds.com/'
+      hero: 'http://schmeler.com/a-quo-sed-fugit-facilis-perferendis-dolores-molestias'
+      primary_color: iihfqcoynlazghdtq
+      secondary_color: tqxbajwbpilpmufin
+      social:
+        facebook: 'https://www.kemmer.net/similique-accusantium-et-a-qui-ducimus'
+        youtube: 'http://koelpin.info/omnis-cum-molestiae-vel-natus-ex'
+        instagram: 'http://www.white.com/'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/clubs/{slug}'
+    metadata:
+      custom: []
+      groupName: Clubs
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Supprimer un club'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_SANCTUM_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'The slug of the club.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      club:
+        custom: []
+        name: club
+        description: 'ID ou slug du club (binding Laravel).'
+        required: true
+        example: hafia-fc
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      slug: consequatur
+      club: hafia-fc
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/clubs
+    metadata:
+      custom: []
+      groupName: Clubs
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Liste des clubs'
+      description: 'Retourne la liste paginée des clubs.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: "Nombre d'éléments par page."
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      include:
+        custom: []
+        name: include
+        description: 'Relations à inclure (teams, teams.players, media).'
+        required: false
+        example: 'teams,media'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      per_page: 15
+      include: 'teams,media'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/clubs/{slug}'
+    metadata:
+      custom: []
+      groupName: Clubs
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Détail d'un club"
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      slug:
+        custom: []
+        name: slug
+        description: 'The slug of the club.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      club:
+        custom: []
+        name: club
+        description: 'ID ou slug du club (binding Laravel).'
+        required: true
+        example: hafia-fc
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      slug: consequatur
+      club: hafia-fc
+    queryParameters:
+      include:
+        custom: []
+        name: include
+        description: 'Relations à inclure (teams, teams.players, media).'
+        required: false
+        example: teams.players
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      include: teams.players
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/clubs/{club_slug}/players/{category}'
+    metadata:
+      custom: []
+      groupName: Clubs
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Joueurs par categorie'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      club_slug:
+        custom: []
+        name: club_slug
+        description: 'The slug of the club.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: 'Catégorie de joueurs (goalkeeper, defender, midfielder, forward).'
+        required: true
+        example: midfielder
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      club:
+        custom: []
+        name: club
+        description: 'ID ou slug du club (binding Laravel).'
+        required: true
+        example: hafia-fc
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      club_slug: consequatur
+      category: midfielder
+      club: hafia-fc
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

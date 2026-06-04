@@ -20,6 +20,17 @@ class ClubController extends Controller
     ) {
     }
 
+    /**
+     * Liste des clubs
+     *
+     * Retourne la liste paginée des clubs.
+     *
+     * @group Clubs
+     * @unauthenticated
+     *
+     * @queryParam per_page integer Nombre d'éléments par page. Example: 15
+     * @queryParam include string Relations à inclure (teams, teams.players, media). Example: teams,media
+     */
     public function index(Request $request)
     {
         $relations = $this->extractAllowedIncludes($request->query('include'));
@@ -30,6 +41,15 @@ class ClubController extends Controller
         return ClubResource::collection($clubs);
     }
 
+    /**
+     * Créer un club
+     *
+     * @group Clubs
+     * @authenticated
+     *
+     * @bodyParam name string required Nom du club. Example: Hafia FC
+     * @bodyParam slug string required Slug unique du club. Example: hafia-fc
+     */
     public function store(StoreClubRequest $request): ClubResource
     {
         $club = $this->clubRepository->create($request->validated());
@@ -39,6 +59,15 @@ class ClubController extends Controller
         return new ClubResource($club);
     }
 
+    /**
+     * Détail d'un club
+     *
+     * @group Clubs
+     * @unauthenticated
+     *
+     * @urlParam club string required ID ou slug du club (binding Laravel). Example: hafia-fc
+     * @queryParam include string Relations à inclure (teams, teams.players, media). Example: teams.players
+     */
     public function show(Request $request, Club $club): ClubResource
     {
         $relations = $this->extractAllowedIncludes($request->query('include'));
@@ -47,6 +76,16 @@ class ClubController extends Controller
         return new ClubResource($clubModel ?? $club);
     }
 
+    /**
+     * Mettre à jour un club
+     *
+     * @group Clubs
+     * @authenticated
+     *
+     * @urlParam club string required ID ou slug du club (binding Laravel). Example: hafia-fc
+     * @bodyParam name string Nom du club. Example: Hafia FC
+     * @bodyParam slug string Slug unique du club. Example: hafia-fc
+     */
     public function update(UpdateClubRequest $request, Club $club): ClubResource
     {
         $updated = $this->clubRepository->update($club->id, $request->validated());
@@ -54,6 +93,14 @@ class ClubController extends Controller
         return new ClubResource($updated ?? $club);
     }
 
+    /**
+     * Supprimer un club
+     *
+     * @group Clubs
+     * @authenticated
+     *
+     * @urlParam club string required ID ou slug du club (binding Laravel). Example: hafia-fc
+     */
     public function destroy(Club $club): JsonResponse
     {
         $this->clubRepository->delete($club->id);
@@ -61,6 +108,15 @@ class ClubController extends Controller
         return response()->json(status: Response::HTTP_NO_CONTENT);
     }
 
+    /**
+     * Joueurs par categorie
+     *
+     * @group Clubs
+     * @unauthenticated
+     *
+     * @urlParam club string required ID ou slug du club (binding Laravel). Example: hafia-fc
+     * @urlParam category string required Catégorie de joueurs (goalkeeper, defender, midfielder, forward). Example: midfielder
+     */
     public function playersByCategory(Club $club, string $category)
     {
         $players = $this->clubRepository->getPlayersByCategory($club->slug, $category);
