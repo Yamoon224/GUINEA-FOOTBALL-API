@@ -240,9 +240,9 @@
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).&lt;/aside&gt;</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer Bearer {YOUR_SANCTUM_TOKEN}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
-<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
+<p>Utilisez le token obtenu via <code>POST /api/v1/auth/login</code> et envoyez-le dans l'en-tête <code>Authorization: Bearer {token}</code>.</p>
 
         <h1 id="authentification">Authentification</h1>
 
@@ -407,7 +407,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost/api/v1/auth/me" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Authorization: Bearer Bearer {YOUR_SANCTUM_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -418,7 +418,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer Bearer {YOUR_SANCTUM_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -486,10 +486,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-auth-me"
-               value="Bearer {YOUR_AUTH_KEY}"
+               value="Bearer Bearer {YOUR_SANCTUM_TOKEN}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+<p>Example: <code>Bearer Bearer {YOUR_SANCTUM_TOKEN}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -532,7 +532,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/v1/auth/logout" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Authorization: Bearer Bearer {YOUR_SANCTUM_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -543,7 +543,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer Bearer {YOUR_SANCTUM_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -611,10 +611,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-auth-logout"
-               value="Bearer {YOUR_AUTH_KEY}"
+               value="Bearer Bearer {YOUR_SANCTUM_TOKEN}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+<p>Example: <code>Bearer Bearer {YOUR_SANCTUM_TOKEN}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -661,14 +661,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/v1/clubs" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Authorization: Bearer Bearer {YOUR_SANCTUM_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"slug\": \"hafia-fc\",
     \"name\": \"Hafia FC\",
     \"acronym\": \"qxbajwbpilpmufinl\",
-    \"founded_at\": \"2026-06-04T17:17:11\",
+    \"founded_at\": \"2026-06-04T17:22:32\",
     \"city\": \"lwloauydlsmsjuryvojcy\",
     \"description\": \"Dolores dolorum amet iste laborum eius est dolor.\",
     \"logo\": \"http:\\/\\/reynolds.com\\/\",
@@ -690,7 +690,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer Bearer {YOUR_SANCTUM_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -699,7 +699,7 @@ let body = {
     "slug": "hafia-fc",
     "name": "Hafia FC",
     "acronym": "qxbajwbpilpmufinl",
-    "founded_at": "2026-06-04T17:17:11",
+    "founded_at": "2026-06-04T17:22:32",
     "city": "lwloauydlsmsjuryvojcy",
     "description": "Dolores dolorum amet iste laborum eius est dolor.",
     "logo": "http:\/\/reynolds.com\/",
@@ -776,10 +776,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-clubs"
-               value="Bearer {YOUR_AUTH_KEY}"
+               value="Bearer Bearer {YOUR_SANCTUM_TOKEN}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+<p>Example: <code>Bearer Bearer {YOUR_SANCTUM_TOKEN}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -849,10 +849,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="founded_at"                data-endpoint="POSTapi-v1-clubs"
-               value="2026-06-04T17:17:11"
+               value="2026-06-04T17:22:32"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-04T17:17:11</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T17:22:32</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -991,14 +991,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost/api/v1/clubs/consequatur" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Authorization: Bearer Bearer {YOUR_SANCTUM_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"slug\": \"hafia-fc\",
     \"name\": \"Hafia FC\",
     \"acronym\": \"qxbajwbpilpmufinl\",
-    \"founded_at\": \"2026-06-04T17:17:16\",
+    \"founded_at\": \"2026-06-04T17:22:36\",
     \"city\": \"lwloauydlsmsjuryvojcy\",
     \"description\": \"Dolores dolorum amet iste laborum eius est dolor.\",
     \"logo\": \"http:\\/\\/reynolds.com\\/\",
@@ -1020,7 +1020,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer Bearer {YOUR_SANCTUM_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1029,7 +1029,7 @@ let body = {
     "slug": "hafia-fc",
     "name": "Hafia FC",
     "acronym": "qxbajwbpilpmufinl",
-    "founded_at": "2026-06-04T17:17:16",
+    "founded_at": "2026-06-04T17:22:36",
     "city": "lwloauydlsmsjuryvojcy",
     "description": "Dolores dolorum amet iste laborum eius est dolor.",
     "logo": "http:\/\/reynolds.com\/",
@@ -1110,10 +1110,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-clubs--slug-"
-               value="Bearer {YOUR_AUTH_KEY}"
+               value="Bearer Bearer {YOUR_SANCTUM_TOKEN}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+<p>Example: <code>Bearer Bearer {YOUR_SANCTUM_TOKEN}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -1208,10 +1208,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="founded_at"                data-endpoint="PUTapi-v1-clubs--slug-"
-               value="2026-06-04T17:17:16"
+               value="2026-06-04T17:22:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-04T17:17:16</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T17:22:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -1350,7 +1350,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost/api/v1/clubs/consequatur" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Authorization: Bearer Bearer {YOUR_SANCTUM_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -1361,7 +1361,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer Bearer {YOUR_SANCTUM_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1429,10 +1429,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-clubs--slug-"
-               value="Bearer {YOUR_AUTH_KEY}"
+               value="Bearer Bearer {YOUR_SANCTUM_TOKEN}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+<p>Example: <code>Bearer Bearer {YOUR_SANCTUM_TOKEN}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -1962,7 +1962,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"content\": \"consequatur\",
     \"image\": \"mqeopfuudtdsufvyvddqa\",
     \"category\": \"mniihfqcoynlazghdtqtq\",
-    \"published_at\": \"2026-06-04T17:17:35\",
+    \"published_at\": \"2026-06-04T17:22:53\",
     \"is_published\": false
 }"
 </code></pre></div>
@@ -1986,7 +1986,7 @@ let body = {
     "content": "consequatur",
     "image": "mqeopfuudtdsufvyvddqa",
     "category": "mniihfqcoynlazghdtqtq",
-    "published_at": "2026-06-04T17:17:35",
+    "published_at": "2026-06-04T17:22:53",
     "is_published": false
 };
 
@@ -2162,10 +2162,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="POSTapi-v1-news"
-               value="2026-06-04T17:17:35"
+               value="2026-06-04T17:22:53"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-04T17:17:35</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T17:22:53</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_published</code></b>&nbsp;&nbsp;
@@ -2215,7 +2215,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"content\": \"consequatur\",
     \"image\": \"mqeopfuudtdsufvyvddqa\",
     \"category\": \"mniihfqcoynlazghdtqtq\",
-    \"published_at\": \"2026-06-04T17:17:37\",
+    \"published_at\": \"2026-06-04T17:22:55\",
     \"is_published\": false
 }"
 </code></pre></div>
@@ -2239,7 +2239,7 @@ let body = {
     "content": "consequatur",
     "image": "mqeopfuudtdsufvyvddqa",
     "category": "mniihfqcoynlazghdtqtq",
-    "published_at": "2026-06-04T17:17:37",
+    "published_at": "2026-06-04T17:22:55",
     "is_published": false
 };
 
@@ -2432,10 +2432,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="PUTapi-v1-news--id-"
-               value="2026-06-04T17:17:37"
+               value="2026-06-04T17:22:55"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-04T17:17:37</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T17:22:55</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_published</code></b>&nbsp;&nbsp;
@@ -2605,7 +2605,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"category\": \"mqeopfuudtdsufvyvddqa\",
     \"opponent\": \"mniihfqcoynlazghdtqtq\",
     \"competition\": \"xbajwbpilpmufinllwloa\",
-    \"match_date\": \"2026-06-04T17:17:40\",
+    \"match_date\": \"2026-06-04T17:22:58\",
     \"match_time\": \"uydlsmsjuryvojcyb\",
     \"day_label\": \"zvrbyickznkygloig\",
     \"venue\": \"mkwxphlvazjrcnfbaqywu\",
@@ -2633,7 +2633,7 @@ let body = {
     "category": "mqeopfuudtdsufvyvddqa",
     "opponent": "mniihfqcoynlazghdtqtq",
     "competition": "xbajwbpilpmufinllwloa",
-    "match_date": "2026-06-04T17:17:40",
+    "match_date": "2026-06-04T17:22:58",
     "match_time": "uydlsmsjuryvojcyb",
     "day_label": "zvrbyickznkygloig",
     "venue": "mkwxphlvazjrcnfbaqywu",
@@ -2780,10 +2780,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="match_date"                data-endpoint="POSTapi-v1-matches"
-               value="2026-06-04T17:17:40"
+               value="2026-06-04T17:22:58"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-04T17:17:40</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T17:22:58</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>match_time</code></b>&nbsp;&nbsp;
@@ -2916,7 +2916,7 @@ Must be one of:
     \"category\": \"mqeopfuudtdsufvyvddqa\",
     \"opponent\": \"mniihfqcoynlazghdtqtq\",
     \"competition\": \"xbajwbpilpmufinllwloa\",
-    \"match_date\": \"2026-06-04T17:17:43\",
+    \"match_date\": \"2026-06-04T17:23:00\",
     \"match_time\": \"uydlsmsjuryvojcyb\",
     \"day_label\": \"zvrbyickznkygloig\",
     \"venue\": \"mkwxphlvazjrcnfbaqywu\",
@@ -2944,7 +2944,7 @@ let body = {
     "category": "mqeopfuudtdsufvyvddqa",
     "opponent": "mniihfqcoynlazghdtqtq",
     "competition": "xbajwbpilpmufinllwloa",
-    "match_date": "2026-06-04T17:17:43",
+    "match_date": "2026-06-04T17:23:00",
     "match_time": "uydlsmsjuryvojcyb",
     "day_label": "zvrbyickznkygloig",
     "venue": "mkwxphlvazjrcnfbaqywu",
@@ -3108,10 +3108,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="match_date"                data-endpoint="PUTapi-v1-matches--id-"
-               value="2026-06-04T17:17:43"
+               value="2026-06-04T17:23:00"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-04T17:17:43</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T17:23:00</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>match_time</code></b>&nbsp;&nbsp;
@@ -6958,7 +6958,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/v1/players" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Authorization: Bearer Bearer {YOUR_SANCTUM_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -6966,7 +6966,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"number\": 13,
     \"first_name\": \"qeopfuudtdsufvyvddqam\",
     \"last_name\": \"niihfqcoynlazghdtqtqx\",
-    \"date_of_birth\": \"2026-06-04T17:17:23\",
+    \"date_of_birth\": \"2026-06-04T17:22:43\",
     \"position\": \"midfielder\",
     \"height\": \"ydlsmsjuryvojcybz\",
     \"photo\": \"http:\\/\\/pollich.com\\/quia-dicta-in-aut-provident-qui-a-voluptatem-dignissimos.html\",
@@ -6981,7 +6981,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer Bearer {YOUR_SANCTUM_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -6991,7 +6991,7 @@ let body = {
     "number": 13,
     "first_name": "qeopfuudtdsufvyvddqam",
     "last_name": "niihfqcoynlazghdtqtqx",
-    "date_of_birth": "2026-06-04T17:17:23",
+    "date_of_birth": "2026-06-04T17:22:43",
     "position": "midfielder",
     "height": "ydlsmsjuryvojcybz",
     "photo": "http:\/\/pollich.com\/quia-dicta-in-aut-provident-qui-a-voluptatem-dignissimos.html",
@@ -7061,10 +7061,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-players"
-               value="Bearer {YOUR_AUTH_KEY}"
+               value="Bearer Bearer {YOUR_SANCTUM_TOKEN}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+<p>Example: <code>Bearer Bearer {YOUR_SANCTUM_TOKEN}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7146,10 +7146,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date_of_birth"                data-endpoint="POSTapi-v1-players"
-               value="2026-06-04T17:17:23"
+               value="2026-06-04T17:22:43"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-04T17:17:23</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T17:22:43</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>position</code></b>&nbsp;&nbsp;
@@ -7216,7 +7216,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost/api/v1/players/17" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Authorization: Bearer Bearer {YOUR_SANCTUM_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -7224,7 +7224,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"number\": 13,
     \"first_name\": \"qeopfuudtdsufvyvddqam\",
     \"last_name\": \"niihfqcoynlazghdtqtqx\",
-    \"date_of_birth\": \"2026-06-04T17:17:28\",
+    \"date_of_birth\": \"2026-06-04T17:22:47\",
     \"position\": \"midfielder\",
     \"height\": \"ydlsmsjuryvojcybz\",
     \"photo\": \"http:\\/\\/pollich.com\\/quia-dicta-in-aut-provident-qui-a-voluptatem-dignissimos.html\",
@@ -7239,7 +7239,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer Bearer {YOUR_SANCTUM_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7249,7 +7249,7 @@ let body = {
     "number": 13,
     "first_name": "qeopfuudtdsufvyvddqam",
     "last_name": "niihfqcoynlazghdtqtqx",
-    "date_of_birth": "2026-06-04T17:17:28",
+    "date_of_birth": "2026-06-04T17:22:47",
     "position": "midfielder",
     "height": "ydlsmsjuryvojcybz",
     "photo": "http:\/\/pollich.com\/quia-dicta-in-aut-provident-qui-a-voluptatem-dignissimos.html",
@@ -7323,10 +7323,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-players--id-"
-               value="Bearer {YOUR_AUTH_KEY}"
+               value="Bearer Bearer {YOUR_SANCTUM_TOKEN}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+<p>Example: <code>Bearer Bearer {YOUR_SANCTUM_TOKEN}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
@@ -7433,10 +7433,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date_of_birth"                data-endpoint="PUTapi-v1-players--id-"
-               value="2026-06-04T17:17:28"
+               value="2026-06-04T17:22:47"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-06-04T17:17:28</code></p>
+<p>Must be a valid date. Example: <code>2026-06-04T17:22:47</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>position</code></b>&nbsp;&nbsp;
@@ -7503,7 +7503,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost/api/v1/players/17" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Authorization: Bearer Bearer {YOUR_SANCTUM_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -7514,7 +7514,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Authorization": "Bearer Bearer {YOUR_SANCTUM_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -7582,10 +7582,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-players--id-"
-               value="Bearer {YOUR_AUTH_KEY}"
+               value="Bearer Bearer {YOUR_SANCTUM_TOKEN}"
                data-component="header">
     <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+<p>Example: <code>Bearer Bearer {YOUR_SANCTUM_TOKEN}</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
