@@ -108,7 +108,7 @@ endpoints:
         name: published_at
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-04T17:17:35'
+        example: '2026-06-04T17:22:53'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -133,7 +133,7 @@ endpoints:
       content: consequatur
       image: mqeopfuudtdsufvyvddqa
       category: mniihfqcoynlazghdtqtq
-      published_at: '2026-06-04T17:17:35'
+      published_at: '2026-06-04T17:22:53'
       is_published: false
     fileParameters: []
     responses:
@@ -269,7 +269,7 @@ endpoints:
         name: published_at
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-04T17:17:37'
+        example: '2026-06-04T17:22:55'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -294,7 +294,7 @@ endpoints:
       content: consequatur
       image: mqeopfuudtdsufvyvddqa
       category: mniihfqcoynlazghdtqtq
-      published_at: '2026-06-04T17:17:37'
+      published_at: '2026-06-04T17:22:55'
       is_published: false
     fileParameters: []
     responses:
@@ -436,7 +436,7 @@ endpoints:
         name: match_date
         description: 'Must be a valid date.'
         required: true
-        example: '2026-06-04T17:17:40'
+        example: '2026-06-04T17:22:58'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -537,7 +537,7 @@ endpoints:
       category: mqeopfuudtdsufvyvddqa
       opponent: mniihfqcoynlazghdtqtq
       competition: xbajwbpilpmufinllwloa
-      match_date: '2026-06-04T17:17:40'
+      match_date: '2026-06-04T17:22:58'
       match_time: uydlsmsjuryvojcyb
       day_label: zvrbyickznkygloig
       venue: mkwxphlvazjrcnfbaqywu
@@ -647,7 +647,7 @@ endpoints:
         name: match_date
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-04T17:17:43'
+        example: '2026-06-04T17:23:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -748,7 +748,7 @@ endpoints:
       category: mqeopfuudtdsufvyvddqa
       opponent: mniihfqcoynlazghdtqtq
       competition: xbajwbpilpmufinllwloa
-      match_date: '2026-06-04T17:17:43'
+      match_date: '2026-06-04T17:23:00'
       match_time: uydlsmsjuryvojcyb
       day_label: zvrbyickznkygloig
       venue: mkwxphlvazjrcnfbaqywu

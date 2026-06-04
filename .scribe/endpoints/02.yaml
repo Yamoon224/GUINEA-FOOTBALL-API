@@ -17,7 +17,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Authorization: 'Bearer Bearer {YOUR_SANCTUM_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -74,7 +74,7 @@ endpoints:
         name: date_of_birth
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-04T17:17:23'
+        example: '2026-06-04T17:22:43'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -129,7 +129,7 @@ endpoints:
       number: 13
       first_name: qeopfuudtdsufvyvddqam
       last_name: niihfqcoynlazghdtqtqx
-      date_of_birth: '2026-06-04T17:17:23'
+      date_of_birth: '2026-06-04T17:22:43'
       position: midfielder
       height: ydlsmsjuryvojcybz
       photo: 'http://pollich.com/quia-dicta-in-aut-provident-qui-a-voluptatem-dignissimos.html'
@@ -173,7 +173,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Authorization: 'Bearer Bearer {YOUR_SANCTUM_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -254,7 +254,7 @@ endpoints:
         name: date_of_birth
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-04T17:17:28'
+        example: '2026-06-04T17:22:47'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -309,7 +309,7 @@ endpoints:
       number: 13
       first_name: qeopfuudtdsufvyvddqam
       last_name: niihfqcoynlazghdtqtqx
-      date_of_birth: '2026-06-04T17:17:28'
+      date_of_birth: '2026-06-04T17:22:47'
       position: midfielder
       height: ydlsmsjuryvojcybz
       photo: 'http://pollich.com/quia-dicta-in-aut-provident-qui-a-voluptatem-dignissimos.html'
@@ -352,7 +352,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Authorization: 'Bearer Bearer {YOUR_SANCTUM_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:

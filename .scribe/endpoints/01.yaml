@@ -17,7 +17,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Authorization: 'Bearer Bearer {YOUR_SANCTUM_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -63,7 +63,7 @@ endpoints:
         name: founded_at
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-04T17:17:11'
+        example: '2026-06-04T17:22:32'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -183,7 +183,7 @@ endpoints:
       slug: hafia-fc
       name: 'Hafia FC'
       acronym: qxbajwbpilpmufinl
-      founded_at: '2026-06-04T17:17:11'
+      founded_at: '2026-06-04T17:22:32'
       city: lwloauydlsmsjuryvojcy
       description: 'Dolores dolorum amet iste laborum eius est dolor.'
       logo: 'http://reynolds.com/'
@@ -233,7 +233,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Authorization: 'Bearer Bearer {YOUR_SANCTUM_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -303,7 +303,7 @@ endpoints:
         name: founded_at
         description: 'Must be a valid date.'
         required: false
-        example: '2026-06-04T17:17:16'
+        example: '2026-06-04T17:22:36'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -423,7 +423,7 @@ endpoints:
       slug: hafia-fc
       name: 'Hafia FC'
       acronym: qxbajwbpilpmufinl
-      founded_at: '2026-06-04T17:17:16'
+      founded_at: '2026-06-04T17:22:36'
       city: lwloauydlsmsjuryvojcy
       description: 'Dolores dolorum amet iste laborum eius est dolor.'
       logo: 'http://reynolds.com/'
@@ -472,7 +472,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Authorization: 'Bearer Bearer {YOUR_SANCTUM_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
