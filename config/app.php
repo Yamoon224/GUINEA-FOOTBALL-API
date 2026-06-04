@@ -185,6 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Knuckles\Scribe\ScribeServiceProvider::class,
 
         /*
          * Application Service Providers...
