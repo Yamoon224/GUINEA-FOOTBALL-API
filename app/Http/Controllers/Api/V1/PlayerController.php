@@ -19,6 +19,18 @@ class PlayerController extends Controller
     ) {
     }
 
+    /**
+     * Liste des joueurs
+     *
+     * Retourne la liste paginée des joueurs avec filtres optionnels.
+     *
+     * @group Joueurs
+     * @unauthenticated
+     *
+     * @queryParam per_page integer Nombre d'éléments par page. Example: 15
+     * @queryParam team_id integer Filtrer par équipe. Example: 2
+     * @queryParam club_slug string Filtrer par club (slug). Example: hafia-fc
+     */
     public function index(Request $request)
     {
         $filters = [
@@ -35,6 +47,16 @@ class PlayerController extends Controller
         return PlayerResource::collection($players);
     }
 
+    /**
+     * Créer un joueur
+     *
+     * @group Joueurs
+     * @authenticated
+     *
+     * @bodyParam name string required Nom complet du joueur. Example: Naby Keita
+     * @bodyParam team_id integer required ID de l'équipe du joueur. Example: 3
+     * @bodyParam position string required Poste du joueur. Example: midfielder
+     */
     public function store(StorePlayerRequest $request): PlayerResource
     {
         $player = $this->playerRepository->create($request->validated());
@@ -43,6 +65,14 @@ class PlayerController extends Controller
         return new PlayerResource($player);
     }
 
+    /**
+     * Détail d'un joueur
+     *
+     * @group Joueurs
+     * @unauthenticated
+     *
+     * @urlParam player integer required ID du joueur. Example: 10
+     */
     public function show(Player $player): PlayerResource
     {
         $playerModel = $this->playerRepository->findById($player->id, ['team', 'media']);
@@ -50,6 +80,17 @@ class PlayerController extends Controller
         return new PlayerResource($playerModel ?? $player);
     }
 
+    /**
+     * Mettre à jour un joueur
+     *
+     * @group Joueurs
+     * @authenticated
+     *
+     * @urlParam player integer required ID du joueur. Example: 10
+     * @bodyParam name string Nom complet du joueur. Example: Naby Keita
+     * @bodyParam team_id integer ID de l'équipe du joueur. Example: 3
+     * @bodyParam position string Poste du joueur. Example: midfielder
+     */
     public function update(UpdatePlayerRequest $request, Player $player): PlayerResource
     {
         $updated = $this->playerRepository->update($player->id, $request->validated());
@@ -57,6 +98,14 @@ class PlayerController extends Controller
         return new PlayerResource($updated ?? $player);
     }
 
+    /**
+     * Supprimer un joueur
+     *
+     * @group Joueurs
+     * @authenticated
+     *
+     * @urlParam player integer required ID du joueur. Example: 10
+     */
     public function destroy(Player $player): JsonResponse
     {
         $this->playerRepository->delete($player->id);

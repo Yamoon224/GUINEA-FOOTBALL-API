@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Club;
 use App\Models\Player;
+use App\Models\User;
 use App\Repositories\Contracts\ClubRepositoryInterface;
 use App\Repositories\Contracts\ClubMatchRepositoryInterface;
 use App\Repositories\Contracts\MediaRepositoryInterface;
@@ -45,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
         Relation::enforceMorphMap([
             'club' => Club::class,
             'player' => Player::class,
+            'user' => User::class,
         ]);
     }
 }
