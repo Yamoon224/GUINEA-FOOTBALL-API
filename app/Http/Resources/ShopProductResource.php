@@ -17,7 +17,7 @@ class ShopProductResource extends JsonResource
             ],
             'category' => $this->category,
             'price' => $this->price,
-            'image' => $this->image,
+            'image' => env('APP_URL') . $this->image,
             'isNew' => $this->is_new,
             'isSale' => $this->is_sale,
             'oldPrice' => $this->old_price,
