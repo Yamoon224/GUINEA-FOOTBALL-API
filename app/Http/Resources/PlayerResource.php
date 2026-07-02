@@ -23,7 +23,7 @@ class PlayerResource extends JsonResource
             'date_of_birth' => $this->date_of_birth,
             'position' => $this->position,
             'height' => $this->height,
-            'photo' => $this->photo,
+            'photo' => env('APP_URL') . $this->photo,
             'team_id' => $this->team_id,
             'team' => new TeamResource($this->whenLoaded('team')),
             'media' => MediaResource::collection($this->whenLoaded('media')),
