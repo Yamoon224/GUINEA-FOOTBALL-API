@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Support\AssetUrl;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -18,7 +19,7 @@ class MediaResource extends JsonResource
             'id' => $this->id,
             'type' => $this->type,
             'title' => $this->title,
-            'url' => $this->url,
+            'url' => AssetUrl::resolve($this->url),
             'meta' => $this->meta,
             'mediable_type' => $this->mediable_type,
             'mediable_id' => $this->mediable_id,

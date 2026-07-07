@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ClubMatch extends Model
 {
@@ -24,5 +25,10 @@ class ClubMatch extends Model
     public function club(): BelongsTo
     {
         return $this->belongsTo(Club::class);
+    }
+
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(MatchTicket::class);
     }
 }

@@ -7,9 +7,12 @@ use App\Http\Requests\Api\V1\StorePlayerRequest;
 use App\Http\Requests\Api\V1\UpdatePlayerRequest;
 use App\Http\Resources\PlayerResource;
 use App\Models\Player;
+use App\Models\Team;
 use App\Repositories\Contracts\PlayerRepositoryInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 class PlayerController extends Controller
@@ -59,7 +62,13 @@ class PlayerController extends Controller
      */
     public function store(StorePlayerRequest $request): PlayerResource
     {
-        $player = $this->playerRepository->create($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('photo')) {
+            $data['photo'] = $this->storePlayerPhoto($request->file('photo'), (int) $data['team_id']);
+        }
+
+        $player = $this->playerRepository->create($data);
         $player = $this->playerRepository->findById($player->id, ['team', 'media']);
 
         return new PlayerResource($player);
@@ -93,9 +102,24 @@ class PlayerController extends Controller
      */
     public function update(UpdatePlayerRequest $request, Player $player): PlayerResource
     {
-        $updated = $this->playerRepository->update($player->id, $request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('photo')) {
+            $teamId = (int) ($data['team_id'] ?? $player->team_id);
+            $data['photo'] = $this->storePlayerPhoto($request->file('photo'), $teamId);
+        }
+
+        $updated = $this->playerRepository->update($player->id, $data);
 
         return new PlayerResource($updated ?? $player);
+    }
+
+    private function storePlayerPhoto(UploadedFile $file, int $teamId): string
+    {
+        $clubSlug = Team::query()->find($teamId)?->club?->slug ?? 'clubs';
+        $path = $file->store("players/{$clubSlug}", 'public');
+
+        return '/storage/'.$path;
     }
 
     /**

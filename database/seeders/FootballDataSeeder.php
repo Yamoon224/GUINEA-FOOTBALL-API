@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\ClubMatch;
 use App\Models\Club;
-use App\Models\Media;
+use App\Models\MatchTicket;
 use App\Models\NewsArticle;
+use App\Models\Palmares;
 use App\Models\Player;
 use App\Models\ShopProduct;
 use App\Models\StandingEntry;
@@ -26,11 +27,12 @@ class FootballDataSeeder extends Seeder
                 'acronym' => 'JAG',
                 'founded_at' => '2024-08-28',
                 'city' => 'Conakry, Guinée',
-                'description' => 'École de sport et de formation dédiée à la jeunesse guinéenne.',
-                'logo' => '/images/clubs/jag/logo.png',
-                'hero' => '/images/clubs/jag/hero.jpg',
-                'primary_color' => '#0F172A',
-                'secondary_color' => '#D4AF37',
+                'description' => "La Jaguar Académie Guinée est un club de football guinéen fondé pour promouvoir les jeunes talents de Conakry. Réputée pour sa formation rigoureuse, l'académie développe des joueurs compétitifs à travers ses trois catégories.",
+                'description_en' => 'Jaguar Académie Guinée is a Guinean football club founded to promote young talent from Conakry. Known for rigorous training, the academy develops competitive players across its three age groups.',
+                'logo' => '/images/jag-logo.png',
+                'hero' => '/images/jag-hero.png',
+                'primary_color' => '#CC0000',
+                'secondary_color' => '#990000',
                 'social' => [
                     'facebook' => 'https://facebook.com/jaguaracademieguinee',
                     'youtube' => 'https://youtube.com/@jaguaracademieguinee',
@@ -45,11 +47,12 @@ class FootballDataSeeder extends Seeder
                 'acronym' => 'Atlético',
                 'founded_at' => '1998-01-01',
                 'city' => 'Colèah, Conakry',
-                'description' => 'Club historique de Colèah, axé sur la formation et la compétition.',
-                'logo' => '/images/clubs/atletico/logo.png',
-                'hero' => '/images/clubs/atletico/hero.jpg',
-                'primary_color' => '#B91C1C',
-                'secondary_color' => '#111827',
+                'description' => "Le Club Atlético de Colèah est un club historique du quartier de Colèah à Conakry. Avec une tradition sportive solide et une grande communauté de supporters, il représente la fierté de son quartier.",
+                'description_en' => 'Club Atlético de Colèah is a historic club from the Colèah district of Conakry. With a solid sporting tradition and a large supporter community, it embodies the pride of its neighbourhood.',
+                'logo' => '/images/atletico-logo.png',
+                'hero' => '/images/atletico-hero.png',
+                'primary_color' => '#F5B800',
+                'secondary_color' => '#C9950A',
                 'social' => [
                     'facebook' => 'https://facebook.com/atleticodecoleah',
                 ],
@@ -96,8 +99,8 @@ class FootballDataSeeder extends Seeder
                 ['number' => 10, 'first_name' => 'Naby', 'last_name' => 'Touré', 'date_of_birth' => '2006-07-11', 'position' => 'Attaquant', 'height' => '1.76 m'],
             ]],
             [$jagSeniors, [
-                ['number' => 1, 'first_name' => 'Aboubacar', 'last_name' => 'Sylla', 'date_of_birth' => '2001-04-15', 'position' => 'Gardien', 'height' => '1.88 m', 'photo' => '/images/players/jag/gardien.jpeg'],
-                ['number' => 10, 'first_name' => 'Moussa', 'last_name' => 'Bah', 'date_of_birth' => '2000-12-03', 'position' => 'Attaquant', 'height' => '1.79 m', 'photo' => '/images/players/jag/10.jpeg'],
+                ['number' => 1, 'first_name' => 'Aboubacar', 'last_name' => 'Sylla', 'date_of_birth' => '2001-04-15', 'position' => 'Gardien', 'height' => '1.88 m', 'photo' => '/storage/players/jag/gardien.jpeg'],
+                ['number' => 10, 'first_name' => 'Moussa', 'last_name' => 'Bah', 'date_of_birth' => '2000-12-03', 'position' => 'Attaquant', 'height' => '1.79 m', 'photo' => '/storage/players/jag/10.jpeg'],
             ]],
             [$atleticoCadets, [
                 ['number' => 1, 'first_name' => 'Mamadou', 'last_name' => 'Diallo', 'date_of_birth' => '2009-05-10', 'position' => 'Gardien', 'height' => '1.77 m'],
@@ -108,8 +111,8 @@ class FootballDataSeeder extends Seeder
                 ['number' => 10, 'first_name' => 'Naby', 'last_name' => 'Sylla', 'date_of_birth' => '2006-08-08', 'position' => 'Attaquant', 'height' => '1.77 m'],
             ]],
             [$atleticoSeniors, [
-                ['number' => 1, 'first_name' => 'Aboubacar', 'last_name' => 'Camara', 'date_of_birth' => '2001-06-17', 'position' => 'Gardien', 'height' => '1.89 m', 'photo' => '/images/players/atletico/1.jpeg'],
-                ['number' => 10, 'first_name' => 'Moussa', 'last_name' => 'Keita', 'date_of_birth' => '2000-01-14', 'position' => 'Attaquant', 'height' => '1.80 m', 'photo' => '/images/players/atletico/10.jpeg'],
+                ['number' => 1, 'first_name' => 'Aboubacar', 'last_name' => 'Camara', 'date_of_birth' => '2001-06-17', 'position' => 'Gardien', 'height' => '1.89 m', 'photo' => '/storage/players/atletico/1.jpeg'],
+                ['number' => 10, 'first_name' => 'Moussa', 'last_name' => 'Keita', 'date_of_birth' => '2000-01-14', 'position' => 'Attaquant', 'height' => '1.80 m', 'photo' => '/storage/players/atletico/10.jpeg'],
             ]],
         ];
 
@@ -123,44 +126,6 @@ class FootballDataSeeder extends Seeder
                     array_merge($attributes, ['team_id' => $team->id])
                 );
             }
-        }
-
-        $jaguarMedia = [
-            ['type' => 'image', 'title' => 'Logo JAG', 'url' => '/images/clubs/jag/logo.png'],
-            ['type' => 'image', 'title' => 'Hero JAG', 'url' => '/images/clubs/jag/hero.jpg'],
-        ];
-
-        $atleticoMedia = [
-            ['type' => 'image', 'title' => 'Logo Atlético', 'url' => '/images/clubs/atletico/logo.png'],
-            ['type' => 'image', 'title' => 'Hero Atlético', 'url' => '/images/clubs/atletico/hero.jpg'],
-        ];
-
-        foreach ($jaguarMedia as $media) {
-            Media::query()->updateOrCreate(
-                [
-                    'mediable_type' => 'club',
-                    'mediable_id' => $jaguar->id,
-                    'url' => $media['url'],
-                ],
-                $media + [
-                    'mediable_type' => 'club',
-                    'mediable_id' => $jaguar->id,
-                ]
-            );
-        }
-
-        foreach ($atleticoMedia as $media) {
-            Media::query()->updateOrCreate(
-                [
-                    'mediable_type' => 'club',
-                    'mediable_id' => $atletico->id,
-                    'url' => $media['url'],
-                ],
-                $media + [
-                    'mediable_type' => 'club',
-                    'mediable_id' => $atletico->id,
-                ]
-            );
         }
 
         $articles = [
@@ -222,6 +187,7 @@ class FootballDataSeeder extends Seeder
             ['club_id' => $jaguar->id, 'category' => 'Seniors', 'opponent' => 'Academie Diamond', 'competition' => 'LIGUA', 'match_date' => '2025-11-06', 'match_time' => '10:00', 'day_label' => 'J2', 'venue' => 'Domicile', 'stadium' => 'Stade de Coleah', 'is_home' => true, 'status' => 'scheduled'],
             ['club_id' => $jaguar->id, 'category' => 'Juniors', 'opponent' => 'Hafia FC Academy', 'competition' => 'Ligue des Académies', 'match_date' => '2025-04-05', 'venue' => 'Extérieur', 'is_home' => false, 'status' => 'completed', 'club_score' => 2, 'opponent_score' => 1],
             ['club_id' => $jaguar->id, 'category' => 'Cadets', 'opponent' => 'Satellite FC', 'competition' => 'Ligue des Académies', 'match_date' => '2025-04-12', 'venue' => 'Domicile', 'is_home' => true, 'status' => 'completed', 'club_score' => 3, 'opponent_score' => 0],
+            ['club_id' => $jaguar->id, 'category' => 'Juniors', 'opponent' => 'FC Kakimbo', 'competition' => 'Ligue des Académies', 'match_date' => '2025-05-10', 'venue' => 'Domicile', 'stadium' => 'Stade du 28 Septembre', 'is_home' => true, 'status' => 'scheduled'],
             ['club_id' => $atletico->id, 'category' => 'Seniors', 'opponent' => 'Kaloum Star', 'competition' => 'Championnat Guinée', 'match_date' => '2025-05-11', 'venue' => 'Domicile', 'stadium' => 'Stade Général Lansana Conté', 'is_home' => true, 'status' => 'scheduled'],
             ['club_id' => $atletico->id, 'category' => 'Seniors', 'opponent' => 'AS Kaloum Star', 'competition' => 'Championnat Guinée', 'match_date' => '2025-04-06', 'venue' => 'Extérieur', 'is_home' => false, 'status' => 'completed', 'club_score' => 3, 'opponent_score' => 2],
             ['club_id' => $atletico->id, 'category' => 'Juniors', 'opponent' => 'Satellite FC', 'competition' => 'Championnat Guinée', 'match_date' => '2025-04-13', 'venue' => 'Domicile', 'is_home' => true, 'status' => 'completed', 'club_score' => 2, 'opponent_score' => 2],
@@ -270,6 +236,45 @@ class FootballDataSeeder extends Seeder
             ShopProduct::query()->updateOrCreate(
                 ['slug' => $product['slug']],
                 $product
+            );
+        }
+
+        $palmares = [
+            ['club_id' => $jaguar->id, 'competition' => 'Ligue Guinéenne des Académies (3ᵉ éd.)', 'year' => 2025, 'rank' => 'Participant', 'description' => 'Première participation de la JAG à la compétition nationale des académies.'],
+            ['club_id' => $atletico->id, 'competition' => 'Coupe Rusal', 'year' => 2005, 'rank' => '1er', 'description' => 'Vainqueur de la Coupe Rusal 2005.'],
+            ['club_id' => $atletico->id, 'competition' => 'Trophées Areeba (1ᵉ éd.)', 'year' => 2007, 'rank' => '1er', 'description' => 'Vainqueur de la 1ᵉ édition des Trophées Areeba.'],
+            ['club_id' => $atletico->id, 'competition' => 'Vice-championnat de Guinée', 'year' => 2010, 'rank' => '2ème', 'description' => '3 fois vice-champion national (2010-2012).'],
+            ['club_id' => $atletico->id, 'competition' => 'Vice-championnat de Guinée', 'year' => 2011, 'rank' => '2ème'],
+            ['club_id' => $atletico->id, 'competition' => 'Vice-championnat de Guinée', 'year' => 2012, 'rank' => '2ème'],
+        ];
+
+        foreach ($palmares as $entry) {
+            Palmares::query()->updateOrCreate(
+                ['club_id' => $entry['club_id'], 'competition' => $entry['competition'], 'year' => $entry['year']],
+                $entry
+            );
+        }
+
+        $jagTicketMatch = ClubMatch::query()->where('club_id', $jaguar->id)->where('opponent', 'FC Kakimbo')->first();
+        $atleticoTicketMatch = ClubMatch::query()->where('club_id', $atletico->id)->where('opponent', 'Kaloum Star')->first();
+
+        $tickets = [];
+
+        if ($jagTicketMatch) {
+            $tickets[] = ['club_match_id' => $jagTicketMatch->id, 'type' => 'Tribune', 'price' => '20 000 GNF', 'available' => 500, 'total' => 500];
+            $tickets[] = ['club_match_id' => $jagTicketMatch->id, 'type' => 'VIP', 'price' => '80 000 GNF', 'available' => 50, 'total' => 50];
+        }
+
+        if ($atleticoTicketMatch) {
+            $tickets[] = ['club_match_id' => $atleticoTicketMatch->id, 'type' => 'Tribune', 'price' => '30 000 GNF', 'available' => 1000, 'total' => 1000];
+            $tickets[] = ['club_match_id' => $atleticoTicketMatch->id, 'type' => 'VIP', 'price' => '100 000 GNF', 'available' => 100, 'total' => 100];
+            $tickets[] = ['club_match_id' => $atleticoTicketMatch->id, 'type' => 'Loge', 'price' => '200 000 GNF', 'available' => 20, 'total' => 20];
+        }
+
+        foreach ($tickets as $ticket) {
+            MatchTicket::query()->updateOrCreate(
+                ['club_match_id' => $ticket['club_match_id'], 'type' => $ticket['type']],
+                $ticket
             );
         }
     }

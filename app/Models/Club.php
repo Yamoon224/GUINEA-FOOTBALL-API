@@ -19,6 +19,7 @@ class Club extends Model implements MediaAttachable
         'founded_at',
         'city',
         'description',
+        'description_en',
         'logo',
         'hero',
         'primary_color',
@@ -64,5 +65,20 @@ class Club extends Model implements MediaAttachable
     public function products(): HasMany
     {
         return $this->hasMany(ShopProduct::class);
+    }
+
+    public function palmares(): HasMany
+    {
+        return $this->hasMany(Palmares::class);
+    }
+
+    public function teamsCount(): int
+    {
+        return $this->teams()->count();
+    }
+
+    public function playersCount(): int
+    {
+        return Player::whereIn('team_id', $this->teams()->pluck('id'))->count();
     }
 }

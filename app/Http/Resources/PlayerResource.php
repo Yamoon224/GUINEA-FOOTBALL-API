@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Support\AssetUrl;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -23,7 +24,7 @@ class PlayerResource extends JsonResource
             'date_of_birth' => $this->date_of_birth,
             'position' => $this->position,
             'height' => $this->height,
-            'photo' => env('APP_URL') . $this->photo,
+            'photo' => AssetUrl::resolve($this->photo),
             'team_id' => $this->team_id,
             'team' => new TeamResource($this->whenLoaded('team')),
             'media' => MediaResource::collection($this->whenLoaded('media')),

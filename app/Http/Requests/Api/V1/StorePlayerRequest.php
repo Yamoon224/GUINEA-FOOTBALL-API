@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Api\V1;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Validator;
 
 class StorePlayerRequest extends FormRequest
 {
@@ -29,7 +31,15 @@ class StorePlayerRequest extends FormRequest
             'date_of_birth' => ['nullable', 'date'],
             'position' => ['nullable', 'string', 'max:100'],
             'height' => ['nullable', 'string', 'max:20'],
-            'photo' => ['nullable', 'url'],
+            'photo' => ['nullable', function ($attribute, $value, $fail) {
+                $rules = $value instanceof UploadedFile ? ['image', 'max:5120'] : ['string', 'url'];
+
+                $validator = Validator::make([$attribute => $value], [$attribute => $rules]);
+
+                if ($validator->fails()) {
+                    $fail($validator->errors()->first($attribute));
+                }
+            }],
         ];
     }
 }

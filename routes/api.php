@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\V1\NewsArticleController;
 use App\Http\Controllers\Api\V1\ShopProductController;
 use App\Http\Controllers\Api\V1\StandingEntryController;
 use App\Http\Controllers\Api\V1\PlayerController;
+use App\Http\Controllers\Api\V1\PalmaresController;
+use App\Http\Controllers\Api\V1\MatchTicketController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function (): void {
@@ -23,6 +25,8 @@ Route::prefix('v1')->group(function (): void {
         Route::apiResource('matches', ClubMatchController::class)->except(['index', 'show']);
         Route::apiResource('standings', StandingEntryController::class)->except(['index', 'show']);
         Route::apiResource('products', ShopProductController::class)->except(['index', 'show']);
+        Route::apiResource('palmares', PalmaresController::class)->except(['index', 'show']);
+        Route::apiResource('tickets', MatchTicketController::class)->except(['index', 'show']);
 
         Route::post('media', [MediaController::class, 'store']);
         Route::delete('media/{media}', [MediaController::class, 'destroy']);
@@ -35,12 +39,16 @@ Route::prefix('v1')->group(function (): void {
     Route::get('clubs/{club}/resultats', [ClubMatchController::class, 'clubResults']);
     Route::get('clubs/{club}/classement', [StandingEntryController::class, 'clubStandings']);
     Route::get('clubs/{club}/boutique', [ShopProductController::class, 'clubProducts']);
+    Route::get('clubs/{club}/palmares', [PalmaresController::class, 'clubPalmares']);
+    Route::get('clubs/{club}/billets', [MatchTicketController::class, 'clubBillets']);
 
     Route::apiResource('players', PlayerController::class)->only(['index', 'show']);
     Route::apiResource('news', NewsArticleController::class)->only(['index', 'show']);
     Route::apiResource('matches', ClubMatchController::class)->only(['index', 'show']);
     Route::apiResource('standings', StandingEntryController::class)->only(['index', 'show']);
     Route::apiResource('products', ShopProductController::class)->only(['index', 'show']);
+    Route::apiResource('palmares', PalmaresController::class)->only(['index', 'show']);
+    Route::apiResource('tickets', MatchTicketController::class)->only(['index', 'show']);
 
     Route::get('media', [MediaController::class, 'index']);
 });

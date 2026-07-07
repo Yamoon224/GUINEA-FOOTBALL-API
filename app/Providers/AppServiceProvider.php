@@ -11,6 +11,8 @@ use App\Repositories\Contracts\MediaRepositoryInterface;
 use App\Repositories\Contracts\NewsArticleRepositoryInterface;
 use App\Repositories\Contracts\ShopProductRepositoryInterface;
 use App\Repositories\Contracts\StandingEntryRepositoryInterface;
+use App\Repositories\Contracts\PalmaresRepositoryInterface;
+use App\Repositories\Contracts\MatchTicketRepositoryInterface;
 use App\Repositories\Contracts\PlayerRepositoryInterface;
 use App\Repositories\Eloquent\EloquentClubRepository;
 use App\Repositories\Eloquent\EloquentClubMatchRepository;
@@ -18,6 +20,8 @@ use App\Repositories\Eloquent\EloquentMediaRepository;
 use App\Repositories\Eloquent\EloquentNewsArticleRepository;
 use App\Repositories\Eloquent\EloquentShopProductRepository;
 use App\Repositories\Eloquent\EloquentStandingEntryRepository;
+use App\Repositories\Eloquent\EloquentPalmaresRepository;
+use App\Repositories\Eloquent\EloquentMatchTicketRepository;
 use App\Repositories\Eloquent\EloquentPlayerRepository;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
@@ -36,6 +40,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ClubMatchRepositoryInterface::class, EloquentClubMatchRepository::class);
         $this->app->bind(StandingEntryRepositoryInterface::class, EloquentStandingEntryRepository::class);
         $this->app->bind(ShopProductRepositoryInterface::class, EloquentShopProductRepository::class);
+        $this->app->bind(PalmaresRepositoryInterface::class, EloquentPalmaresRepository::class);
+        $this->app->bind(MatchTicketRepositoryInterface::class, EloquentMatchTicketRepository::class);
     }
 
     /**
